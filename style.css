@@ -1,0 +1,138 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;    /* Center horizontally */
+    padding-top: 20px;
+    background-color: #1a1a2e; /* Darker background for glow */
+    color: #e0e0e0; /* Lighter text for contrast */
+}
+
+h1 {
+    color: #f0a500; /* Fiery title color */
+    text-shadow: 0 0 5px #f0a500, 0 0 10px #ff5722;
+}
+
+#circle-container {
+    width: 350px; /* Slightly larger maybe */
+    height: 350px;
+    border: 2px solid #4a4a6a; /* Darker border */
+    border-radius: 50%;
+    position: relative;
+    margin: 30px auto;
+    background-color: #1f1f3f; /* Darker container background */
+    box-shadow: 0 0 15px rgba(74, 74, 106, 0.5), /* Inner shadow */
+                inset 0 0 10px rgba(0, 0, 0, 0.4); /* Inset shadow */
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: #e0e0e0; /* Brighter dots */
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1a1a2e; /* Dark text on bright dot */
+    font-size: 8px;
+    font-weight: bold;
+    user-select: none;
+    box-shadow: 0 0 5px #fff, 0 0 8px #f0a500; /* Subtle dot glow */
+    z-index: 10; /* Ensure dots are above lines */
+}
+
+#lines-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    /* Overflow hidden prevents glows extending beyond container, optional */
+    /* overflow: hidden; */
+}
+
+/* --- Arcane Line Styling --- */
+.arcane-line {
+    stroke: #ffcc00; /* Base bright yellow color */
+    stroke-width: 2.5; /* Slightly thicker base */
+    stroke-linecap: round; /* Smoother line ends */
+
+    /* --- The Glow Effect using CSS Filters --- */
+    /* Layer multiple drop-shadows for a multi-colored glow */
+    /* format: offset-x offset-y blur-radius color */
+    filter:
+        drop-shadow(0 0 1.5px #ffffff) /* Inner sharp white glow */
+        drop-shadow(0 0 4px #ffcc00)   /* Yellow halo */
+        drop-shadow(0 0 8px #ff8800)   /* Orange halo */
+        drop-shadow(0 0 15px #ff4400); /* Reddish outer halo */
+
+    /* --- Animation for Energy Flow --- */
+    stroke-dasharray: 10 5; /* Pattern: 10px line, 5px gap */
+    stroke-dashoffset: 0;
+    /* Animation: name duration timing-function iteration-count */
+    animation: arcane-flow 1.5s linear infinite;
+}
+
+/* Keyframes for the energy flow animation */
+@keyframes arcane-flow {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        /* Offset by the total pattern length (10 + 5 = 15) */
+        /* Negative value makes it flow from A to B based on SVG direction */
+        stroke-dashoffset: -15;
+    }
+}
+
+
+/* --- Controls Styling --- */
+.controls {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1f1f3f; /* Match container bg */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 1px solid #4a4a6a;
+}
+
+.controls label {
+    margin-right: 5px;
+    color: #f0a500; /* Match title color */
+}
+
+.controls input[type="number"] {
+    width: 50px;
+    margin-right: 15px;
+    padding: 5px;
+    background-color: #e0e0e0;
+    border: 1px solid #4a4a6a;
+    color: #1a1a2e;
+}
+
+.controls button {
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: #f0a500;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.controls button:hover {
+    background-color: #ffcc00;
+    box-shadow: 0 0 8px #ffcc00;
+}
+
+.controls button:last-of-type { /* Clear button slightly different */
+     background-color: #6c757d;
+     color: #e0e0e0;
+}
+.controls button:last-of-type:hover {
+    background-color: #8a9197;
+    box-shadow: 0 0 8px #8a9197;
+}
