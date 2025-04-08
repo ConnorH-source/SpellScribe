@@ -22,10 +22,10 @@
         <button onclick="clearAllLines()">Clear Lines</button>
         <br>
         <label>Level:</label>
-        <input type = "number" id = "Level" min = 0 max = 9 value=1>
+        <input type = "number" id = "Level" min = 0 max = 9 value=3>
         <br>
         <label>School:</label>
-        <select id ="School">
+        <select id ="School" value = "1">
             <option value = "0">Abjuration</option>
             <option value = "1">Evocation</option>
             <option value = "2">Conjuration</option>
@@ -37,7 +37,7 @@
         </select>
         <br>
         <label>Damage Type:</label>
-        <select id = "DamageType">
+        <select id = "DamageType" value = "5">
             <option value = "0">Bludgeoning</option>
             <option value = "1">Piercing</option>
             <option value = "2">Slashing</option>
@@ -56,7 +56,7 @@
         </select>
         <br>
         <label>Damage Die:</label>
-        <select id = "DamageDie">
+        <select id = "DamageDie" value = "1">
             <option value = "0">d4</option>
             <option value = "1">d6</option>
             <option value = "2">d8</option>
@@ -68,10 +68,10 @@
         </select>
         <br>
         <label>Number of Dice:</label>
-        <input type = "number" id = "DiceNumber" min = "0">
+        <input type = "number" id = "DiceNumber" min = "0" value="8">
         <br>
         <label>Area Type:</label>
-        <select id = "AreaType">
+        <select id = "AreaType" value = "4">
             <option value = "0">Cone</option>
             <option value = "1">Cube</option>
             <option value = "2">Cylinder</option>
@@ -83,14 +83,14 @@
         </select>
         <br>
         <label>Area Size (ft):</label>
-        <input type = "number" id = "AreaSize" min = "0">
+        <input type = "number" id = "AreaSize" min = "0" value = "20">
         <br>
         <label>Range (ft):</label>
-        <input type = "number" id = "Range" min = "0">
+        <input type = "number" id = "Range" min = "0" value = "150">
         <br>
         <label>Duration:</label>
-        <input type = "number" id = "DurationNumber" min = "0">
-        <select id = "DurationUnit">
+        <input type = "number" id = "DurationNumber" min = "0" value = "0">
+        <select id = "DurationUnit" value = "2">
             <option value = "0">seconds</option>
             <option value = "1">hours</option>
             <option value = "2">instantaneous</option>
